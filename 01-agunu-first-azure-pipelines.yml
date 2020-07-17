@@ -8,9 +8,9 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-# pipeline>Stages>Jobs
+# pipeline >Stages >Jobs >Task(steps)
 
-Jobs:
+jobs:
 - job: Job1
 steps:
 - script: echo Hello, world job1!
@@ -20,15 +20,8 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
-
-Jobs:
-- jobs: job2
-
+- jobs: Job2
 steps:
 - script: echo Hello, world job2!
   displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
