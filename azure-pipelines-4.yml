@@ -24,7 +24,7 @@ stages:
       displayName: Build an image
       inputs:
         containerRegistry: 'agunuzure-docker-hub'
-        repository: 'agunuworld/currency-exchange-azre4'
+        repository: 'agunuworld/currency-exchange-azre2'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
