@@ -1,0 +1,22 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  jobs:
+  - job: FirstJob
+    steps:
+    - bash: echo Build FirstJob
+    - bash: echo $(PipeLineLevelVariable)
+    - bash: echo $(Build.BuildNumber)
+    - bash: echo $(Build.BuildId)
+    - bash: echo $(Build.SourceBranchName)
+    - bash: echo $(Build.SourcesDirectory)
+    - bash: echo $(System.DefaultWorkingDirectory)
+    - bash: ls -R $(System.DefaultWorkingDirectory)
+    - bash: echo $(Build.ArtifactStagingDirectoroy)
+    - bash: echo $(System.DefaultWorkingDirectory)
+
