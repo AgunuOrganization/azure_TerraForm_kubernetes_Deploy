@@ -20,7 +20,7 @@ steps:
     backendServiceArm: 'azure_subscription_connection'
     ensureBackend: true
     backendAzureRmResourceGroupName: 'terraform-backend-rg'
-    backendAzureRmResourceGroupLocation: 'Central US'
+    backendAzureRmResourceGroupLocation: 'centralus'
     backendAzureRmStorageAccountName: 'storageaccountxyp'
     backendAzureRmContainerName: 'storageaccountcontainer'
     backendAzureRmKey: 'kubernetes-dev.tfstate'
