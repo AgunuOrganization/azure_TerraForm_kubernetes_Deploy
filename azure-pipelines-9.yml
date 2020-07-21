@@ -29,7 +29,7 @@ stages:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
         Contents: '**/*.yaml'
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
-- task: PublishBuildArtifacts@1
+  - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
@@ -38,7 +38,7 @@ stages:
 #Push Docker => 100 tag
 # copy the files to staging Directory
 #public
-- stage: Deploy
+  - stage: Deploy
   displayName: Deploy image
   jobs:  
   - job: Deploy
@@ -46,19 +46,22 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-- task: DownloadPipelineArtifact@2
+  - task: DownloadPipelineArtifact@2
   inputs:
     buildType: 'current'
     artifactName: 'manifests'
     itemPattern: '**/*.yaml'
     targetPath: '$(System.ArtifactsDirectory)'
-- task: KubernetesManifest@0
+  - task: KubernetesManifest@0
   inputs:
     action: 'deploy'
     kubernetesServiceConnection: 'agunueghosaworld4'
     namespace: 'default'
     manifests: '$(System.ArtifactsDirectory)/configuration/kubernetes/deployment.yaml'
     containers: in28min/currency-exchange-devops:$(tags)
+
+
+
 #image 100 tag Deploy to k8s
 #Downloas
 #apply - kubectl apply -f deployment.yaml
